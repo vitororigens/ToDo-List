@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.devvitorplay.ToDoList"
     },
     "web": {
       "favicon": "./assets/adaptive-icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ecaf0728-8f49-459a-9b35-d0c3b2e57f2b"
+      }
     }
   }
 }
