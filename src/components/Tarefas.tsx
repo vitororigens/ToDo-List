@@ -1,33 +1,35 @@
-import { View, Text, Image, TouchableOpacity, } from "react-native"
+import { View, Text, TouchableOpacity, } from "react-native"
 import { styles } from "./styles"
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+type props = {
+    name: string,
+    onRemove: () => void,
+    selected: boolean,
+    onSelected: () => void,
+}
 
-export function Tarefas() {
+export function Tarefas({ name, onRemove, selected, onSelected }: props) {
     return (
-        <View style={styles.containerTarefa}>
-            <View style={styles.estadoTarefa}>
-                <Text style={styles.textCriadas}>
-                    Criadas 0
-                </Text>
-                <Text style={styles.textConcluidas}>
-                    Concluídas 0
-                </Text>
-            </View>
-            <View style={styles.containerLista}>
-               <View style={styles.task}>
-                <TouchableOpacity>
-                    <MaterialCommunityIcons name='check-circle'
-                    size={32}
-                    color='#4EA8DE'
+
+        <View style={styles.containerLista}>
+            <View style={styles.task}>
+                <TouchableOpacity onPress={() => onSelected(name)} >
+                    <MaterialCommunityIcons
+                        name={selected ? 'checkbox-marked-circle-outline' : 'checkbox-blank-circle-outline'}
+                        size={32}
+                        color='#4EA8DE'
+
                     />
                 </TouchableOpacity>
-                <Text style={styles.textTask}>Cortar cabelo</Text>
-                <MaterialCommunityIcons name="trash-can-outline"
-                color='#808080'
-                size={32}
+                <Text style={styles.textTask}>{name}</Text>
+                <MaterialCommunityIcons
+                    onPress={onRemove}
+                    name="trash-can-outline"
+                    color='#808080'
+                    size={32}
                 />
-               </View>
             </View>
         </View>
+
     )
 }

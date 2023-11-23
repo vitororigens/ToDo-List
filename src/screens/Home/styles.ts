@@ -43,7 +43,28 @@ export const styles = StyleSheet.create({
         alignItems:'center',
         borderRadius:5,
     },
-    image:{
-
-    }
+    containerTarefa:{
+        width:'100%',
+        padding:24,
+        marginTop: 55,
+        flex:1,
+    },
+    estadoTarefa:{
+        width:'100%',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        borderBottomColor:'#333333',
+        paddingBottom:20,
+        borderBottomWidth:1,
+        marginBottom:50,
+    },
+    
+    textCriadas:{
+        fontSize:16,
+        color:'#4EA8DE'
+    },
+    textConcluidas:{
+        fontSize:16,
+        color:'#8284FA'
+    },
 })
