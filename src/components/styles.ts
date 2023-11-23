@@ -23,6 +23,13 @@ export const styles = StyleSheet.create({
     },
     textTask:{
         fontSize:14,
-        color:'#FFF'
-    }
+        color:'#FFF',
+        textDecorationLine: 'none',
+    },
+    textDone: {
+        color:'#808080',
+        fontSize: 20,
+		textDecorationLine: 'line-through'
+	},
+	
 })

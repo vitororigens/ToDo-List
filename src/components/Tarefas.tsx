@@ -5,7 +5,7 @@ type props = {
     name: string,
     onRemove: () => void,
     selected: boolean,
-    onSelected: () => void,
+    onSelected: (taskName: string) => void,
 }
 
 export function Tarefas({ name, onRemove, selected, onSelected }: props) {
@@ -17,11 +17,14 @@ export function Tarefas({ name, onRemove, selected, onSelected }: props) {
                     <MaterialCommunityIcons
                         name={selected ? 'checkbox-marked-circle-outline' : 'checkbox-blank-circle-outline'}
                         size={32}
-                        color='#4EA8DE'
+                        color={selected ? '#5E60CE' : '#4EA8DE'}
 
                     />
                 </TouchableOpacity>
-                <Text style={styles.textTask}>{name}</Text>
+                <Text style={selected ? styles.textDone : styles.textTask}>
+                    {name}
+                </Text>
+                
                 <MaterialCommunityIcons
                     onPress={onRemove}
                     name="trash-can-outline"
