@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
         width:'100%',
         flexDirection:'row',
         justifyContent:'space-between',
+        alignItems:'center',
         borderBottomColor:'#333333',
         paddingBottom:20,
         borderBottomWidth:1,
@@ -70,4 +71,24 @@ export const styles = StyleSheet.create({
         fontSize:16,
         color:'#8284FA'
     },
+    circle:{
+        height: 25,
+        width: 25,
+        backgroundColor:'#333333',
+        justifyContent:'center',
+        alignItems:'center',
+        textAlign: 'center',
+        borderRadius:50,
+        marginLeft   :5,
+       
+    },
+    textCircle:{
+        textAlign:'center',
+        color:'#FFF'
+    },
+    containerEstadoTarefa:{
+        justifyContent:'center',
+        flexDirection:'row',
+        alignItems:'center',
+    }
 })

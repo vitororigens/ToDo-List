@@ -10,8 +10,8 @@ export function Home() {
     const [tarefasName, setTarefasName] = useState('')
     const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
     function handleTarefaAdd() {
-        if(tarefas.includes(tarefasName)){
-            return Alert.alert('Tarefa já existe', 'Você já possui uma tarefa pendente com esse nome ' )
+        if (tarefas.includes(tarefasName)) {
+            return Alert.alert('Tarefa já existe', 'Você já possui uma tarefa pendente com esse nome ')
         }
         setTarefas(prevState => ([...prevState, tarefasName]))
         setTarefasName('')
@@ -24,7 +24,7 @@ export function Home() {
             },
             {
                 text: 'Não',
-                style:'cancel'
+                style: 'cancel'
 
             }
         ])
@@ -38,7 +38,7 @@ export function Home() {
     }
 
     const totalTaskCreated = tarefas.length
-    const totalTaskChecked = selectedTasks.length; 
+    const totalTaskChecked = selectedTasks.length;
 
 
     return (
@@ -60,34 +60,49 @@ export function Home() {
             </View>
             <View style={styles.containerTarefa}>
                 <View style={styles.estadoTarefa}>
-                    <Text style={styles.textCriadas}>
-                        Criadas {totalTaskCreated}
-                    </Text>
-                    <Text style={styles.textConcluidas}>
-                        Concluídas {totalTaskChecked}
-                    </Text>
-                </View>
-               <FlatList
-               data={tarefas}
-               keyExtractor={item => item}
-               renderItem={({item}) =>(
-                <Tarefas
-                key={item}
-                name={item}
-                onRemove={() => handleTarefaRemove(item)}
-                selected={selectedTasks.includes(item)}
-                onSelected={() => handleTarefaSelected(item)}
-            />
+                    <View style={styles.containerEstadoTarefa}>
+                        <Text style={styles.textCriadas}>
+                            Criadas: 
+                        </Text>
+                        <View style={styles.circle}>
+                            <Text style={styles.textCircle}>{totalTaskCreated}
+                            </Text>
+                        </View>
+                    </View>
 
-               )}
-               showsVerticalScrollIndicator={false}
-               ListEmptyComponent={() =>(
-                <Empty/>
-               )}
-               />
-               
-               
-              
+                    <View style={styles.containerEstadoTarefa}>
+                        <Text style={styles.textConcluidas}>
+                            Concluídas: 
+                        </Text>
+                        <View style={styles.circle}>
+                            <Text style={styles.textCircle}>
+                                {totalTaskChecked}
+                            </Text>
+                        </View>
+                    </View>
+
+                </View>
+                <FlatList
+                    data={tarefas}
+                    keyExtractor={item => item}
+                    renderItem={({ item }) => (
+                        <Tarefas
+                            key={item}
+                            name={item}
+                            onRemove={() => handleTarefaRemove(item)}
+                            selected={selectedTasks.includes(item)}
+                            onSelected={() => handleTarefaSelected(item)}
+                        />
+
+                    )}
+                    showsVerticalScrollIndicator={false}
+                    ListEmptyComponent={() => (
+                        <Empty />
+                    )}
+                />
+
+
+
             </View>
 
         </View>
