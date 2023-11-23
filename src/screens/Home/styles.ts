@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'#808080',
+        backgroundColor:'#272727',
     },
     header:{
         backgroundColor:'#0D0D0D',
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         justifyContent:'center'
     },
     logo:{
-        height:30,  
+        height:32,  
     },
     form:{
         width:'100%',
